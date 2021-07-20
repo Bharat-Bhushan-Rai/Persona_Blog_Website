@@ -63,6 +63,19 @@ app.get("/post/:topic",function(req,res)
   });
   
 })
+
+app.post("/delete",function(req,res)
+{
+    const todel= req.body.del;
+    Post.findOneAndDelete({title:todel},function(err)
+    {
+      if(!err)
+      {
+        res.redirect("/");
+      }
+    })
+})
+
 app.post("/compose",function(req,res)
 {
   // res.render('compose',{});
