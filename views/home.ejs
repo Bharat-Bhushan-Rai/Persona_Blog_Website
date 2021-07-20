@@ -6,6 +6,10 @@
 <h1> <%= posts[i].title %></h1>
 <p> <%= posts[i].blog.substring(0,100) +"..." %>
     <a href="/post/<%=posts[i].title%>">Read More</a>
+    <form action="/delete" method="POST">
+            <input type="hidden" name="del" value="<%=posts[i].title%>"></input>
+            <button type="submit"  >-</button>
+        </form>
 </p>
 <% } %>
 <%- include('partials/footer.ejs')-%>
